@@ -92,7 +92,6 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
         if (_profileEditor != null)
         {
             _profileEditor.RefreshAntags();
-            _profileEditor.RefreshJobs();
         }
     }
 
@@ -103,12 +102,6 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
             if (obj.WasModified<AntagPrototype>())
             {
                 _profileEditor.RefreshAntags();
-            }
-
-            if (obj.WasModified<JobPrototype>() ||
-                obj.WasModified<DepartmentPrototype>())
-            {
-                _profileEditor.RefreshJobs();
             }
 
             if (obj.WasModified<LoadoutPrototype>() ||
@@ -195,7 +188,6 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
     private void RefreshProfileEditor()
     {
         _profileEditor?.RefreshAntags();
-        _profileEditor?.RefreshJobs();
         _profileEditor?.RefreshLoadouts();
     }
 
